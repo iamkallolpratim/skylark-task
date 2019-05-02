@@ -26,6 +26,12 @@ const AppRouter = ({ ...rest }) => {
       <Route
         {...rest}
         exact={true}
+        path={`/`}
+        render={props => <DashboardContainer {...props} />}
+      />
+      <Route
+        {...rest}
+        exact={true}
         path={`${rest.match.path}/products`}
         render={(props) => (<ProductContainer {...props}/>)}
       />

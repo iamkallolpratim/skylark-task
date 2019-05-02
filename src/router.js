@@ -8,7 +8,7 @@ const Routes = ({history}) => {
     <ConnectedRouter history={history}>
       <div>
         <Route
-          path="/warehouse"
+          path="/"
           component={AppLayout}
         />
       </div>

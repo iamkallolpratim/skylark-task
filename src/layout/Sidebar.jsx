@@ -18,7 +18,7 @@ class SideBar extends Component {
 
                 >
                     <div className="logo">
-                        <h3>{this.props.collapsed ? 'WH' : 'WAREHOUSE'}</h3>
+                        <h3>{this.props.collapsed ? 'CRM' : 'CRM'}</h3>
                     </div>
                     <Menu className="sidebar-menu" theme="dark" mode="inline" defaultSelectedKeys={[`${match.path}/`]} selectedKeys={[location.pathname]}>
                         <Menu.Item key={`${match.path}`}>

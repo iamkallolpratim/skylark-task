@@ -39,7 +39,7 @@ class AppLayout extends Component {
                 <AppRouter {...this.props} />
               </Content>
               <Footer style={{ textAlign: 'center' }}>
-                Warehouse  ©2018 DeepSpace9
+                Ant design react
               </Footer>
             </Layout>
           </Layout>
