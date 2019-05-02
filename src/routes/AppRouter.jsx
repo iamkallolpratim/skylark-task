@@ -15,18 +15,14 @@ const ProductContainer = Loadable({
 });
 
 const AppRouter = ({ ...rest }) => {
+  console.log(rest.match);
   return (
     <Switch>
+      
       <Route
         {...rest}
         exact={true}
-        path={`${rest.match.path}`}
-        render={props => <DashboardContainer {...props} />}
-      />
-      <Route
-        {...rest}
-        exact={true}
-        path={`/`}
+        path={`${rest.match.path}/`}
         render={props => <DashboardContainer {...props} />}
       />
       <Route

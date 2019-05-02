@@ -3,6 +3,8 @@ import { Layout, Icon } from 'antd';
 import { AppHolder } from './CommonStyle';
 import Sidebar from './Sidebar';
 import AppRouter from '../routes/AppRouter';
+import PublicRouter from '../routes/PublicRouter';
+import {isAuthnicated} from '../helpers/utils';
 
 const { Header, Content, Footer } = Layout;
 
@@ -18,9 +20,20 @@ class AppLayout extends Component {
   }
 
   render() {
+    const isAuth =  isAuthnicated();
     return (
       <React.Fragment>
-        <AppHolder>
+        {
+          !isAuth?
+          <Layout style={{ height: "100vh" }}>
+              <Layout style={{ height: "100vh" }}>
+                <Content className="content" style={{ padding: 200, marginTop: 50 }}>
+                  <PublicRouter {...this.props} />
+                </Content>
+              </Layout>
+          </Layout>
+          :
+          <AppHolder>
           <Layout style={{ height: "100vh" }}>
 
             <Sidebar
@@ -44,6 +57,7 @@ class AppLayout extends Component {
             </Layout>
           </Layout>
         </AppHolder>
+        }
       </React.Fragment>
     );
   }
