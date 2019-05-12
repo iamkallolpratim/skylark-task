@@ -3,11 +3,18 @@ import { NavLink, withRouter } from 'react-router-dom';
 import Layout from 'antd/lib/layout';
 import Icon from 'antd/lib/icon';
 import Menu from 'antd/lib/menu';
+import {removeCookies} from '../helpers/utils';
 
 const { Sider } = Layout;
 
 
 class SideBar extends Component {
+
+
+    logout = () => {
+        removeCookies('access_token');
+        this.props.history.push('/');
+    }
     render() {
         const { match } = this.props;
         const { location } = this.props;
@@ -18,7 +25,7 @@ class SideBar extends Component {
 
                 >
                     <div className="logo">
-                        <h3>{this.props.collapsed ? 'CRM' : 'CRM'}</h3>
+                        <h3>{this.props.collapsed ? 'SD' : 'Skylark Drones'}</h3>
                     </div>
                     <Menu className="sidebar-menu" theme="dark" mode="inline" defaultSelectedKeys={[`${match.path}/`]} selectedKeys={[location.pathname]}>
                         <Menu.Item key={`${match.path}`}>
@@ -26,10 +33,11 @@ class SideBar extends Component {
                                 <span>Dashboard</span>
                             </NavLink>
                         </Menu.Item>
-                        <Menu.Item key={`${match.path}/products`}>
-                            <NavLink exact to={`${match.path}/products`}><Icon type="qrcode" />
-                                <span>Products</span>
-                            </NavLink>
+
+                        <Menu.Item>
+                            <a role="button" onClick={this.logout}><Icon type="poweroff" />
+                                <span>Logout</span>
+                            </a>
                         </Menu.Item>
                     </Menu>
                 </Sider>

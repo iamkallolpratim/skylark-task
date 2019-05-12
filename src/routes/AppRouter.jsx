@@ -9,10 +9,6 @@ const DashboardContainer = Loadable({
   loading: Loading
 });
 
-const ProductContainer = Loadable({
-  loader: () => import(/* webpackChunkName: "ProductContainer" */'../containers/product'),
-  loading: Loading
-});
 
 const AppRouter = ({ ...rest }) => {
   console.log(rest.match);
@@ -24,12 +20,6 @@ const AppRouter = ({ ...rest }) => {
         exact={true}
         path={`${rest.match.path}/`}
         render={props => <DashboardContainer {...props} />}
-      />
-      <Route
-        {...rest}
-        exact={true}
-        path={`${rest.match.path}/products`}
-        render={(props) => (<ProductContainer {...props}/>)}
       />
       <Route component={NotFound} />
     </Switch>);

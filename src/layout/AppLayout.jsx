@@ -6,7 +6,7 @@ import AppRouter from '../routes/AppRouter';
 import PublicRouter from '../routes/PublicRouter';
 import {isAuthnicated} from '../helpers/utils';
 
-const { Header, Content, Footer } = Layout;
+const { Header, Content } = Layout;
 
 class AppLayout extends Component {
   state = {
@@ -51,9 +51,7 @@ class AppLayout extends Component {
               <Content className="content" style={{ padding: 24, marginTop: 10 }}>
                 <AppRouter {...this.props} />
               </Content>
-              <Footer style={{ textAlign: 'center' }}>
-                Ant design react
-              </Footer>
+              
             </Layout>
           </Layout>
         </AppHolder>

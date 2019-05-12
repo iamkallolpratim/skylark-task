@@ -16,7 +16,7 @@ class LoginContainer extends Component {
         e.preventDefault();
         this.props.form.validateFields((err, values) => {
             if (!err) {
-                setCookie();
+                setCookie('access_token' , '12345678');
                 this.props.history.push('/');
             }
         });

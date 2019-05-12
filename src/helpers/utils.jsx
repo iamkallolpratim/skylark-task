@@ -11,6 +11,8 @@ if (userAccessToken)
     setRequestAuthHeader(userAccessToken);
 
 
+export const mapBoxToken = 'pk.eyJ1IjoiZ2VldCIsImEiOiJjajFvb3pkb3gwMDgzMnhtbGV3NzlsdWRlIn0.M1vn6pjT_GVa8nRD4pRXEw';
+
 export function cacheBuster(url){
     const cache_buster = new Date().getTime();
     if (url instanceof URL) {
@@ -33,6 +35,18 @@ export function isAuthnicated(){
   return !!cookies.get('access_token');
 }
 
-export function setCookie(){
-  cookies.set('access_token', '12345678');
+export function setCookie(name , data){
+  cookies.set(name, data);
+}
+
+export function setPolygonData(name , data){
+  localStorage.setItem(name, JSON.stringify(data));
+}
+
+export function getPolygonData(name){
+  return localStorage.getItem(name);
+}
+
+export function removeCookies(name){
+  cookies.remove(name);
 }
